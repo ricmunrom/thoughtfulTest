@@ -24,6 +24,11 @@ This program categorizes packages into three distinct classes based on predefine
 ```python
 # Define the sort function in your script
 def sort(width, height, length, mass):
+    # Input validation
+    if not all(isinstance(param, (int, float)) for param in [width, height, length, mass]):
+        raise TypeError("All parameters must be numeric")
+    if any(param <= 0 for param in [width, height, length, mass]):
+        raise ValueError("All dimensions and mass must be positive values")
     volume = width*height*length
     is_bulky = volume >= 1000000 or width>=150 or height>=150 or length>=150
     is_heavy = mass >= 20

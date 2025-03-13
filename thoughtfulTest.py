@@ -21,14 +21,14 @@ def sort(width, height, length, mass):
         return "STANDARD"
 
 
-print(sort(150, 150, 150, 20))
-print(sort(150, 150, 150, 10))
-print(sort(150, 150, 150, 30))
-print(sort(80, 150, 100, 40))
-print(sort(80, 100, 100, 20))
-print(sort(80, 90, 100, 10))
-print(sort(100, 100, 100, 20))
-print(sort(100, 100, 100, 10))
-print(sort(100, 90, 100, 5))
-print(sort('a', 90, 100, 10))
-print(sort(0, 90, 0, 5))
+print(sort(150, 150, 150, 20))  # Should be REJECTED (both bulky and heavy)
+print(sort(150, 150, 150, 10))  # Should be SPECIAL (bulky but not heavy)
+print(sort(150, 150, 150, 30))  # Should be REJECTED (both bulky and heavy)
+print(sort(80, 150, 100, 40))   # Should be REJECTED (both bulky and heavy)
+print(sort(80, 100, 100, 20))   # Should be SPECIAL (exactly at heavy threshold)
+print(sort(80, 90, 100, 10))    # Should be STANDARD (neither bulky nor heavy)
+print(sort(100, 100, 100, 20))  # Should be REJECTED (exactly at heavy and bulky threshold)
+print(sort(100, 100, 100, 10))  # Should be SPECIAL (xactly at bulky threshold)
+print(sort(100, 90, 100, 5))    # Should be STANDARD (neither bulky nor heavy)
+print(sort('a', 90, 100, 10))   # Should raise TypeError
+print(sort(0, 90, 0, 5))        # Should raise ValueError
